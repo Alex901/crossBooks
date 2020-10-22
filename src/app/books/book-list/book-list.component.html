@@ -2,17 +2,45 @@
     <mat-card-title> Books </mat-card-title>
     <mat-card-content>
         <mat-accordion>
+            <!-- *ngFor here-->
             <mat-expansion-panel hideToggle>
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        test_Title
-                    </mat-panel-title>
-                    <mat-mat-panel-description>
-                        Author
-                    </mat-mat-panel-description>
-                </mat-expansion-panel-header>
-                <p> All wierd stuff go here </p>
 
+                <mat-expansion-panel-header>
+                    <mat-grid-list cols="3" rowHeight="25px" class="header_grid-list">
+                        <mat-grid-tile class="left-align-forced">
+                            <p class="left-align-forced"> <b>Title: </b> Harry Potter </p>
+                        </mat-grid-tile>
+                        <mat-grid-tile>
+                            <p class="left-align-forced"> <b>Author: </b> J.K Rowling </p>
+                        </mat-grid-tile>
+                        <mat-grid-tile>
+                            <p class="left-align-forced"> <b>Price: </b> FREE </p>
+                        </mat-grid-tile>
+                    </mat-grid-list>
+                </mat-expansion-panel-header>
+                <mat-grid-list class="details_grid-list" cols="2" rowHeight="40px">
+
+                    <mat-grid-tile rowspan=3>
+                        <p class="left-align-forced"> <b>Details:</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper velit erat, id molestie justo dapibus tempus. Vivamus nulla arcu, tincidunt ac nibh id, mattis tincidunt mauris. Phasellus hendrerit dui. </p>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile>
+                        <p class="left-align-forced"> <b>Uuid:</b> 123e4567-e89b-12d3-a456-426614174000 </p>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile>
+                        <p class="left-align-forced"> <b>Genre:</b> Fantasy </p>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile>
+                        <p class="left-align-forced"> <b>Published: </b> 01.01.2001</p>
+                    </mat-grid-tile>
+                </mat-grid-list>
+                <mat-action-row>
+                    <button mat-mini-fab color="warn" aria-label="Delete book" (click)="deleteBook()">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </mat-action-row>
             </mat-expansion-panel>
         </mat-accordion>
     </mat-card-content>

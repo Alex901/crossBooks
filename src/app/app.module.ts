@@ -10,6 +10,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 //Components
 import { AppRoutingModule } from './app-routing.module';
@@ -38,7 +39,8 @@ import { SearchComponent } from './header/nav-search/search/search.component';
     MatCardModule,
     MatButtonModule,
     MatInputModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatGridListModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [],
