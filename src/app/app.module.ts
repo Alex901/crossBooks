@@ -2,6 +2,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
+// search module – why reinvent the wheel?
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 //Angular Material
 import {MatIconModule} from '@angular/material/icon'
@@ -11,6 +13,8 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatFormFieldModule, MatFormField} from '@angular/material/form-field';
 
 //Components
 import { AppRoutingModule } from './app-routing.module';
@@ -20,6 +24,7 @@ import { HeaderComponent } from './header/header/header.component';
 import { BookListComponent } from './books/book-list/book-list.component';
 import { BookComponent } from './books/book/book/book.component';
 import { SearchComponent } from './header/nav-search/search/search.component';
+import { AddBookDialogComponent } from './books/dialogs/add-book-dialog/add-book-dialog.component';
 
 
 @NgModule({
@@ -29,6 +34,7 @@ import { SearchComponent } from './header/nav-search/search/search.component';
     BookListComponent,
     BookComponent,
     SearchComponent,
+    AddBookDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,10 +46,14 @@ import { SearchComponent } from './header/nav-search/search/search.component';
     MatButtonModule,
     MatInputModule,
     MatExpansionModule,
-    MatGridListModule
+    MatGridListModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    Ng2SearchPipeModule,
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [AddBookDialogComponent]
 })
 export class AppModule { }

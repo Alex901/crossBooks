@@ -1,5 +1,5 @@
 export class Book {
-  public id : number;
+  public id : string;
   public author : string;
   public title : string;
   public genre : string;
@@ -7,7 +7,7 @@ export class Book {
   public publish_date : string;
   public description : string;
 
-  constructor(id : number, author : string, title : string, genre : string, price : number, publish_date : string, description : string){
+  constructor(id : string, author : string, title : string, genre : string, price : number, publish_date : string, description : string){
     this.id = id;
     this.author = author;
     this.title = title;

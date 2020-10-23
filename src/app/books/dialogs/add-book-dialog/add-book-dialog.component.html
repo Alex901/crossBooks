@@ -1,0 +1,14 @@
+<h2 mat-dialog-title> Add book </h2>
+
+<mat-dialog-content [formGroup]="form">
+
+    <mat-form-field>
+        <input matInput placeholder="Book title" formControlName="title">
+
+    </mat-form-field>
+
+</mat-dialog-content>
+<mat-dialog-content>
+    <button class="mat-raised-button mat-warn" (click)="close()">Close</button>
+    <button class="mat-raised-button mat-accent" style='margin-left: 5px' (click)="submit()">Submit</button>
+</mat-dialog-content>

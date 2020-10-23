@@ -1,51 +1,53 @@
 <mat-card class="mat-elevation-z5">
-    <mat-card-title> Books </mat-card-title>
+    <mat-card-title style='margin-bottom:10px'>
+        <h1>Books </h1>
+    </mat-card-title>
     <mat-card-content>
-        <mat-accordion>
+        <mat-accordion *ngFor="let book of books; let i = index">
             <!-- *ngFor here-->
             <mat-expansion-panel hideToggle>
 
                 <mat-expansion-panel-header>
-                    <mat-grid-list cols="3" rowHeight="25px" class="header_grid-list">
+                    <mat-grid-list cols="3" rowHeight="1:1" class="header_grid-list">
                         <mat-grid-tile class="left-align-forced">
-                            <p class="left-align-forced"> <b>Title: </b> Harry Potter </p>
+                            <p class="left-align-forced"> <b>Title: </b> {{ book.title }}</p>
                         </mat-grid-tile>
                         <mat-grid-tile>
-                            <p class="left-align-forced"> <b>Author: </b> J.K Rowling </p>
+                            <p class="left-align-forced"> <b>Author: </b> {{ book.author }} </p>
                         </mat-grid-tile>
                         <mat-grid-tile>
-                            <p class="left-align-forced"> <b>Price: </b> FREE </p>
+                            <p class="left-align-forced"> <b>Price: </b> {{ book.price }} $ </p>
                         </mat-grid-tile>
                     </mat-grid-list>
                 </mat-expansion-panel-header>
-                <mat-grid-list class="details_grid-list" cols="2" rowHeight="40px">
+                <mat-grid-list class="details_grid-list" cols="2" rowHeight="10:1">
 
                     <mat-grid-tile rowspan=3>
-                        <p class="left-align-forced"> <b>Details:</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper velit erat, id molestie justo dapibus tempus. Vivamus nulla arcu, tincidunt ac nibh id, mattis tincidunt mauris. Phasellus hendrerit dui. </p>
+                        <p class="left-align-forced"> <b>Details:</b> {{ book.description }} </p>
                     </mat-grid-tile>
 
                     <mat-grid-tile>
-                        <p class="left-align-forced"> <b>Uuid:</b> 123e4567-e89b-12d3-a456-426614174000 </p>
+                        <p class="left-align-forced"> <b>Uuid:</b> {{ book.id }} </p>
                     </mat-grid-tile>
 
                     <mat-grid-tile>
-                        <p class="left-align-forced"> <b>Genre:</b> Fantasy </p>
+                        <p class="left-align-forced"> <b>Genre:</b> {{book.genre}} </p>
                     </mat-grid-tile>
 
                     <mat-grid-tile>
-                        <p class="left-align-forced"> <b>Published: </b> 01.01.2001</p>
+                        <p class="left-align-forced"> <b>Published: </b> {{ book.publish_date }}</p>
                     </mat-grid-tile>
                 </mat-grid-list>
-                <mat-action-row>
-                    <button mat-mini-fab color="warn" aria-label="Delete book" (click)="deleteBook()">
+                <mat-action-row style='background-color: rgb(248, 234, 232);'>
+                    <button mat-mini-fab color="warn" aria-label="Delete book" (click)="deleteBook(book.title, book.id)">
                     <mat-icon>delete</mat-icon>
                   </button>
                 </mat-action-row>
             </mat-expansion-panel>
         </mat-accordion>
     </mat-card-content>
-    <mat-card-actions fxFlexAlign="center" align="center">
-        <button mat-fab class="plus_fab" aria-label="Example icon button with a bookmark icon">
+    <mat-card-actions align="center">
+        <button mat-fab class="plus_fab" aria-label="Example icon button with a bookmark icon" (click)="createBookDialog()">
           <mat-icon class="white-icon plus_icon">add</mat-icon>
         </button>
     </mat-card-actions>
