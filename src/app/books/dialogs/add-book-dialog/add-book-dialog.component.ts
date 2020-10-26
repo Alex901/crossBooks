@@ -30,7 +30,7 @@ export class AddBookDialogComponent implements OnInit {
   }
 
   //TODO: Data constraints ?
-  //TODO: Date selecter ?
+  //TODO: Date selector ?
   //TODO: Disable submit if required values are empty!
 
   ngOnInit(){
@@ -42,7 +42,7 @@ export class AddBookDialogComponent implements OnInit {
   }
 
   submit(){
-    // Yeah, um. Don't do like this! :'D
+    // Yeah, um. Don't do like this! But it works here, so... :'D
     this.bookService.createBook(this.uuid, this.author, this.title, this.genre, this.price, this.publish_date, this.description);
     this.dialogRef.close();
   }

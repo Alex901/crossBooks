@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  API_KEY: 'Ik73kNY4yS7M2Io6QEsHJ2rSViKwkTee9j6HQvRY',
+  AUTH_TOKEN: 'e5af8c25-e877-4404-95d2-d2474d3543ae',
+  SERVICE_URI: 'https://hu7yj4035d.execute-api.eu-west-1.amazonaws.com/dev/'
 };
 
 /*

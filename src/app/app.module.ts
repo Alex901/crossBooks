@@ -2,6 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 // search module – why reinvent the wheel?
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
@@ -27,7 +28,6 @@ import { BookComponent } from './books/book/book/book.component';
 import { SearchComponent } from './header/nav-search/search/search.component';
 import { AddBookDialogComponent } from './books/dialogs/add-book-dialog/add-book-dialog.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +42,7 @@ import { AddBookDialogComponent } from './books/dialogs/add-book-dialog/add-book
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    HttpClientModule,
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
