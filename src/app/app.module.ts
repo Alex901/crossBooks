@@ -1,6 +1,7 @@
 //REALLY nice to have modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 // search module – why reinvent the wheel?
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
@@ -40,6 +41,7 @@ import { AddBookDialogComponent } from './books/dialogs/add-book-dialog/add-book
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
     MatToolbarModule,
     MatIconModule,
     MatCardModule,

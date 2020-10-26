@@ -4,8 +4,14 @@ import { BookService } from '../../services/book.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AddBookDialogComponent } from '../dialogs/add-book-dialog/add-book-dialog.component';
 
-export interface dialogData{
+export interface dialogData{ //This is not even needed...
   title : string;
+  author : string;
+  genre : string;
+  uuid : string;
+  description : string;
+  publish_date : string;
+  price : number;
 }
 
 @Component({
@@ -29,16 +35,23 @@ export class BookListComponent implements OnInit {
   createBookDialog(): void {
     const config = new MatDialogConfig;
 
-    config.width = '300px';
-    config.disableClose = false; //standard?
+    config.width = '400px';
     config.autoFocus = true;
     config.closeOnNavigation = true;
 
-    config.data = {
-      title:"test"
+    config.data = { //Just testing stuff out, don't mind this uggly piece of ****! :)
+      uuid: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      title:"Crime and Punishment",
+      author:"Fyodor Dostoyevsky",
+      genre:"Philosophy/Crime",
+      price: 25.99,
+      publish_date: "1866-01-01 12:59:59",
+      description:"A man murders people and ponders weather it was the right moral choice or not. He is supperior to other people after all? Isn't he?"
     };
     //Probably don't need the ref, just inject the bookService into the dialogComponent. We'll see
-    const dialogRef = this.dialog.open(AddBookDialogComponent, config);
+    this.dialog.open(AddBookDialogComponent, config);
+
+
   }
 
   //I want id as the deletion chriteria, since that is definetly uniqe(?).
