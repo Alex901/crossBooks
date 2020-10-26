@@ -46,4 +46,7 @@ testem.log
 .DS_Store
 Thumbs.db
 .env
+<<<<<<< HEAD
 .environment.ts
+=======
+>>>>>>> parent of b7ccac9... minor change to .gitignore
