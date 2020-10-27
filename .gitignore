@@ -45,6 +45,6 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-.env
-.enviroment.ts
+src/app/services/keys.spec.ts
+src/app/services/keys.ts
 

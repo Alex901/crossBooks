@@ -1,19 +1,17 @@
-import { Injectable, EventEmitter, OnInit } from '@angular/core';
+import { Injectable, EventEmitter} from '@angular/core';
 import { Book } from '../models/book.model';
 import { ApiService } from './api.service';
 @Injectable({
   providedIn: 'root'
 })
-export class BookService implements OnInit{
-  //A few example books
-  private books : Book[] = [new Book("09e9ed60-42e7-4a20-b397-d1935741733d", "author", "title","genre", 5, "01:01:2020", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at luctus lacus, at vehicula mi. Nulla eu purus sollicitudin ligula.")
-,new Book("09e9ed60-46e7-4a20-b397-d1935741733d", "J.R.R Tolkien", "Lord of the Rings - the two towers","Fantasy", 19.99 , "01:01:1972", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at luctus lacus, at vehicula mi. Nulla eu purus sollicitudin ligula, whatever.")];
+export class BookService{
+  //A couple of example books
+  private books : Book[] = [new Book("09e9ed60-42e7-4a20-b397-d1931111733d", "author", "title","genre", 5, "01:01:2020", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at luctus lacus, at vehicula mi. Nulla eu purus sollicitudin ligula.")
+,new Book("09e9ed60-46e7-4a20-b397-d1935741222x3d", "J.R.R Tolkien", "Lord of the Rings - the two towers","Fantasy", 19.99 , "01:01:1972", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at luctus lacus, at vehicula mi. Nulla eu purus sollicitudin ligula, whatever.")];
   booksChanged = new EventEmitter<Book[]>(); //remember this if it is needed
 
-  constructor(private apiService : ApiService) { }
-
-  ngOnInit(){
-
+  constructor(private apiService : ApiService) {
+    this.apiService.onGetBooks();
   }
 
   getBooks(){
