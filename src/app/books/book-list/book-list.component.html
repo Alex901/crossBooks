@@ -5,9 +5,9 @@
     <mat-card-content>
         <mat-accordion *ngFor="let book of books; let i = index">
             <!-- *ngFor here-->
-            <mat-expansion-panel hideToggle>
+            <mat-expansion-panel hideToggle style='margin-bottom: 3px; border: 2px solid whitesmoke'>
 
-                <mat-expansion-panel-header>
+                <mat-expansion-panel-header style="background-color: rgb(248, 246, 246); border: 1px solid lightgray;">
                     <mat-grid-list cols="3" rowHeight="1:1" class="header_grid-list">
                         <mat-grid-tile class="left-align-forced">
                             <p class="left-align-forced"> <b>Title: </b> {{ book.title }}</p>
@@ -38,7 +38,7 @@
                         <p class="left-align-forced"> <b>Published: </b> {{ book.publish_date }}</p>
                     </mat-grid-tile>
                 </mat-grid-list>
-                <mat-action-row style='background-color: rgb(248, 234, 232);'>
+                <mat-action-row style='background-color: rgb(248, 234, 232); border: 1px solid pink'>
                     <button mat-mini-fab color="warn" aria-label="Delete book" (click)="deleteBook(book.title, book.id)">
                     <mat-icon>delete</mat-icon>
                   </button>

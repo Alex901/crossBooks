@@ -11,7 +11,7 @@ export class BookService{
   booksChanged = new EventEmitter<Book[]>(); //remember this if it is needed
 
   constructor(private apiService : ApiService) {
-    this.apiService.onGetBooks();
+   this.apiService.onGetBooks();
   }
 
   getBooks(){
