@@ -20,16 +20,14 @@ export interface dialogData{ //This is not even needed...
   styleUrls: ['./book-list.component.scss']
 })
 export class BookListComponent implements OnInit {
-  title : string;
-
   books : Book[] = [];
+  term : string = ""; //tmp, view from nav-header
 
   constructor(private bookService : BookService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.books = this.bookService.getBooks();
-
-    this.bookService.booksChanged.subscribe(); //don't forget this if you need it
+    console.log(this.books);
   }
 
   createBookDialog(): void {
@@ -39,13 +37,14 @@ export class BookListComponent implements OnInit {
     config.autoFocus = true;
     config.closeOnNavigation = true;
 
+    //Example values to make testing easier
     config.data = { //Just testing stuff out, don't mind this uggly piece of ****! :)
-      uuid: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      uuid: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", //Not needed
       title:"Crime and Punishment",
-      author:"Fyodor Dostoyevsky",
-      genre:"Philosophy/Crime",
+      author:"Dostoyevsky, Fyodor ",
+      genre:"Philosophy",
       price: 25.99,
-      publish_date: "1866-01-01 12:59:59",
+      publish_date: "1866-01-01T00:00:00Z",
       description:"A man murders people and ponders weather it was the right moral choice or not. He is supperior to other people after all? Isn't he?"
     };
     //Probably don't need the ref, just inject the bookService into the dialogComponent. We'll see
@@ -59,7 +58,7 @@ export class BookListComponent implements OnInit {
     if(confirm("Are you sure you want to delete: " + name)){
       this.bookService.deleteBook(id);
     } else {
-      console.log("You ain't got the ballz to delete " + name);
+      console.log("You ain't got the balls to delete " + name);
     }
   }
 

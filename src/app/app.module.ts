@@ -17,6 +17,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule, MatFormField} from '@angular/material/form-field';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule, MAT_DATE_LOCALE} from '@angular/material/core';
 
 //Components
 import { AppRoutingModule } from './app-routing.module';
@@ -52,10 +54,12 @@ import { AddBookDialogComponent } from './books/dialogs/add-book-dialog/add-book
     MatGridListModule,
     MatDialogModule,
     MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     Ng2SearchPipeModule,
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
-  providers: [],
+  providers: [{provide: MAT_DATE_LOCALE, useValue: 'en-GB'},],
   bootstrap: [AppComponent],
   entryComponents: [AddBookDialogComponent]
 })

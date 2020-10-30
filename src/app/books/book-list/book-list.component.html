@@ -3,8 +3,7 @@
         <h1>Books </h1>
     </mat-card-title>
     <mat-card-content>
-        <mat-accordion *ngFor="let book of books; let i = index">
-            <!-- *ngFor here-->
+        <mat-accordion *ngFor="let book of books | filter:term ">
             <mat-expansion-panel hideToggle style='margin-bottom: 3px; border: 2px solid whitesmoke'>
 
                 <mat-expansion-panel-header style="background-color: rgb(248, 246, 246); border: 1px solid lightgray;">

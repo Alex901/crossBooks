@@ -4,6 +4,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { dialogData } from '../../book-list/book-list.component';
 import { BookService } from 'src/app/services/book.service';
 
+
 @Component({
   selector: 'app-add-book-dialog',
   templateUrl: './add-book-dialog.component.html',
@@ -20,18 +21,19 @@ export class AddBookDialogComponent implements OnInit {
   description : string;
 
   constructor(public dialogRef : MatDialogRef<AddBookDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: dialogData, private bookService : BookService) {
-    this.uuid = data.uuid;
     this.title = data.title;
     this.author = data.author;
     this.genre = data.genre;
     this.price = data.price;
     this.publish_date = data.publish_date;
     this.description = data.description;
+    this.uuid = data.uuid;
   }
 
   //TODO: Data constraints ?
-  //TODO: Date selector ?
-  //TODO: Disable submit if required values are empty!
+  //TODO: Date selector ? x
+  //TODO: Disable submit if required values are empty! ~
+  //TODO: Time Formatter
 
   ngOnInit(){
   }
@@ -43,8 +45,25 @@ export class AddBookDialogComponent implements OnInit {
 
   submit(){
     // Yeah, um. Don't do like this! But it works here, so... :'D
+    console.log("publish_date: " + this.publish_date);
+    if(this.title == ''){
+      alert("Please enter the books title!");
+    } else if(this.author == ''){
+      alert("Please enter Author name!");
+    } else if(this.genre == ''){
+      alert("please select a genre!");
+    } else if(this.price == null){
+      alert("Enter a price!");
+    } else if(this.publish_date == ''){
+      alert("Select a date");
+    }
+    else {
+      if(this.description == ''){
+        this.description = "No description, you will probably like it!";
+      }
     this.bookService.createBook(this.uuid, this.author, this.title, this.genre, this.price, this.publish_date, this.description);
     this.dialogRef.close();
+    }
   }
 
 }
