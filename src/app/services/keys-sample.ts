@@ -5,9 +5,9 @@ import { Injectable } from '@angular/core';
 })
 
 export class KeysSample {
-  API_KEY = "<Your API Key>";
-  AUTH_TOKEN = "<Your auth-token>";
-  SERVICE_URI= "https://hu7yj4035d.execute-api.eu-west-1.amazonaws.com/dev/";
+  API_KEY = "<x-api-key>";
+  AUTH_TOKEN = "<x-authorization>";
+  SERVICE_URI= "<service-uri>";
 }
 
 

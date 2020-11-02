@@ -21,9 +21,12 @@ export interface dialogData{ //This is not even needed...
 })
 export class BookListComponent implements OnInit {
   books : Book[] = [];
-  term : string = ""; //tmp, view from nav-header
+  term : string; //tmp, view from nav-header
 
-  constructor(private bookService : BookService, public dialog: MatDialog) { }
+  constructor(private bookService : BookService, public dialog: MatDialog) { 
+    this.bookService.currentSearch.subscribe(search => this.term = search);
+    console.log("Book-list: " + this.term);
+   }
 
   ngOnInit(): void {
     this.books = this.bookService.getBooks();

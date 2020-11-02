@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { BookService } from 'src/app/services/book.service';
 
 @Component({
   selector: 'app-search',
@@ -7,10 +8,18 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
   public term : string;
-  constructor() {
+
+  constructor(private bookService : BookService) {
+    this.bookService.currentSearch.subscribe(search => this.term = search);
+    console.log("Nav-Search: " + this.term);
   }
 
   ngOnInit(): void {
+    
+  }
+
+  newSearch(){
+    this.bookService.updateSearchTerm(this.term);
   }
 
 }

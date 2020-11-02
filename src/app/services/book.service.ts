@@ -1,9 +1,9 @@
 import { Injectable, EventEmitter, OnInit} from '@angular/core';
 import { Book } from '../models/book.model';
 import { Keys } from './keys';
-//<Remove me> import { KeysSample } from './keys-sample';
-import { HttpClient, HttpHeaderResponse, HttpHeaders, HttpResponse, HttpErrorResponse} from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { KeysSample } from './keys-sample';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { stringify } from '@angular/compiler/src/util';
 @Injectable({
@@ -12,10 +12,17 @@ import { stringify } from '@angular/compiler/src/util';
 export class BookService{
   //A couple of example books
   public books : Book[] = [];
-  booksChanged = new EventEmitter<Book[]>(); //remember this if it is needed
 
-  constructor(private http : HttpClient, private keys : Keys) {
+  private searchSource = new BehaviorSubject<string>("");
+  currentSearch = this.searchSource.asObservable();
 
+  //Change keys : -> Keys <- too "KeysSample" and enter the proper keys, and it will work :)
+  constructor(private http : HttpClient, private keys : Keys) {  
+
+  }
+
+  updateSearchTerm(message: string){
+    this.searchSource.next(message);
   }
 
   getBooks(){
