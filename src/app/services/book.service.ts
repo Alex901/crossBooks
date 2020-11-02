@@ -15,7 +15,7 @@ export class BookService{
   private searchSource = new BehaviorSubject<string>("");
   currentSearch = this.searchSource.asObservable();
 
-  //Change keys : -> Keys <- too "KeysSample" and enter the proper keys, and it will work :)
+  //Change keys : -> Keys <- too "KeysSample" and enter the proper keys in keys-sample.ts, and it will work :)
   constructor(private http : HttpClient, private keys : Keys) {  
 
   }
@@ -47,7 +47,7 @@ export class BookService{
    this.books.forEach((book, index) => {
     if(book.id === id){
       this.books.splice(index, 1);
-      console.log("uuid: " +book.id)
+    //  console.log("uuid: " +book.id)
       this.onDeleteBook(book.id);
     }
    })
@@ -103,7 +103,7 @@ export class BookService{
   }, error => { //401 and 403 cought on launch. You will never get here if it fails there.
    // console.error(error);
     if(error.status = 400){
-      alert("Invalid payload, could not create book"); //Could be a little more informative, but CBA.
+      alert("Invalid payload, could not create book"); //Could be a little more informative.
     } else {
       alert("Unknown error.. Antar att du bara är för dålig för att kasta sten :)");
     }

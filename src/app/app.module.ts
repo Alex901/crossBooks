@@ -26,7 +26,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header/header.component';
 import { BookListComponent } from './books/book-list/book-list.component';
-import { BookComponent } from './books/book/book/book.component';
 import { SearchComponent } from './header/nav-search/search/search.component';
 import { AddBookDialogComponent } from './books/dialogs/add-book-dialog/add-book-dialog.component';
 
@@ -35,7 +34,6 @@ import { AddBookDialogComponent } from './books/dialogs/add-book-dialog/add-book
     AppComponent,
     HeaderComponent,
     BookListComponent,
-    BookComponent,
     SearchComponent,
     AddBookDialogComponent,
   ],

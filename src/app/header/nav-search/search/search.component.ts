@@ -6,16 +6,11 @@ import { BookService } from 'src/app/services/book.service';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent{
   public term : string;
 
   constructor(private bookService : BookService) {
     this.bookService.currentSearch.subscribe(search => this.term = search);
-    console.log("Nav-Search: " + this.term);
-  }
-
-  ngOnInit(): void {
-    
   }
 
   newSearch(){

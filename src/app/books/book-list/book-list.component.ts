@@ -25,12 +25,10 @@ export class BookListComponent implements OnInit {
 
   constructor(private bookService : BookService, public dialog: MatDialog) { 
     this.bookService.currentSearch.subscribe(search => this.term = search);
-    console.log("Book-list: " + this.term);
    }
 
   ngOnInit(): void {
     this.books = this.bookService.getBooks();
-    console.log(this.books);
   }
 
   createBookDialog(): void {
@@ -41,7 +39,7 @@ export class BookListComponent implements OnInit {
     config.closeOnNavigation = true;
 
     //Example values to make testing easier
-    config.data = { //Just testing stuff out, don't mind this uggly piece of ****! :)
+    config.data = { 
       uuid: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", //Not needed
       title:"Crime and Punishment",
       author:"Dostoyevsky, Fyodor ",
@@ -52,7 +50,6 @@ export class BookListComponent implements OnInit {
     };
     //Probably don't need the ref, just inject the bookService into the dialogComponent. We'll see
     this.dialog.open(AddBookDialogComponent, config);
-
 
   }
 
