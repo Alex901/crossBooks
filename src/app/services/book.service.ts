@@ -5,7 +5,6 @@ import { KeysSample } from './keys-sample';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { stringify } from '@angular/compiler/src/util';
 @Injectable({
   providedIn: 'root'
 })
@@ -34,6 +33,7 @@ export class BookService{
     try{ //I have no clue if this matters. I'am only used to doing things like this i guess; Everything that could cause errors here is cought in add-book-dialog
       try{
         this.onBookCreate({id, author, title, genre, price, publish_date, description});
+        window.location.reload(); //I don't like this at all, haha
       } catch(err){
         console.error("API error")
       }
